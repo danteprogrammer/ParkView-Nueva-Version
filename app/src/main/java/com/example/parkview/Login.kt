@@ -38,11 +38,9 @@ class Login : Fragment() {
         btnLogin = view.findViewById(R.id.btn_login)
         btnGoToRegister = view.findViewById(R.id.btn_register_card)
 
-        // Encuentra el TextView para recuperar contraseña
         val tvForgotPassword = view.findViewById<TextView>(R.id.tv_forgot_password)
 
         btnLogin.setOnClickListener {
-            // (Tu código existente para iniciar sesión va aquí, no necesita cambios)
             val email = etEmailLogin.text.toString().trim()
             val password = etPasswordLogin.text.toString().trim()
 
@@ -63,7 +61,6 @@ class Login : Fragment() {
             findNavController().navigate(R.id.action_login_to_register)
         }
 
-        // AÑADE ESTE LISTENER
         tvForgotPassword.setOnClickListener {
             findNavController().navigate(R.id.action_login_to_forgotPasswordFragment)
         }

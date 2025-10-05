@@ -43,7 +43,6 @@ class ForgotPasswordFragment : Fragment() {
         }
 
         tvBackToLogin.setOnClickListener {
-            // Regresa a la pantalla de Login
             findNavController().popBackStack()
         }
     }
