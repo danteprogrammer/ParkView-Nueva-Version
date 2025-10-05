@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
+import android.widget.TextView
 import android.widget.Toast
 import androidx.navigation.fragment.findNavController
 import com.google.firebase.auth.FirebaseAuth
@@ -37,7 +38,11 @@ class Login : Fragment() {
         btnLogin = view.findViewById(R.id.btn_login)
         btnGoToRegister = view.findViewById(R.id.btn_register_card)
 
+        // Encuentra el TextView para recuperar contraseña
+        val tvForgotPassword = view.findViewById<TextView>(R.id.tv_forgot_password)
+
         btnLogin.setOnClickListener {
+            // (Tu código existente para iniciar sesión va aquí, no necesita cambios)
             val email = etEmailLogin.text.toString().trim()
             val password = etPasswordLogin.text.toString().trim()
 
@@ -48,8 +53,7 @@ class Login : Fragment() {
                             Toast.makeText(context, "Inicio de sesión exitoso.", Toast.LENGTH_SHORT).show()
                             findNavController().navigate(R.id.action_login_to_dashboard)
                         } else {
-                            Toast.makeText(context, "Error en el inicio de sesión: ${task.exception?.message}",
-                                Toast.LENGTH_LONG).show()
+                            Toast.makeText(context, "Error en el inicio de sesión: ${task.exception?.message}", Toast.LENGTH_LONG).show()
                         }
                     }
             }
@@ -57,6 +61,11 @@ class Login : Fragment() {
 
         btnGoToRegister.setOnClickListener {
             findNavController().navigate(R.id.action_login_to_register)
+        }
+
+        // AÑADE ESTE LISTENER
+        tvForgotPassword.setOnClickListener {
+            findNavController().navigate(R.id.action_login_to_forgotPasswordFragment)
         }
     }
 
